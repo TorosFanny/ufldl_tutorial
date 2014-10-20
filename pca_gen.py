@@ -60,7 +60,7 @@ print 'Optimal k to retain 99% variance is:', k
 #  correspond to dimensions with low variation.
 
 patches_tilde = u[:, 0:k].transpose().dot(patches)
-patches_hat = u.dot(np.resize(patches_tilde, patches.shape))
+patches_hat = u[:,0:k].dot(patches_tilde)
 
 display_network.display_network(patches_hat[:, random_sel], 'pca_tilde.png')
 display_network.display_network(patches[:, random_sel], 'pca.png')
